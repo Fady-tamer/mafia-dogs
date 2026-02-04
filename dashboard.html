@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mafia Dogs - Kennel Manager</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" href="images/main-logo-gold.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="background-container">
+        <img class="background-img" src="images/main-logo-gold.png" alt="">
+    </div>
+
+    <header class="top-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/main-logo-gold.png" alt="Mafia Dogs Logo">
+                <span>MAFIA DOGS</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-item">
+                    <i class="fa-solid fa-house"></i> Home
+                </a>
+                <a href="addCard.html" class="nav-item active">
+                    <i class="fa-solid fa-plus"></i> Add Dog
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="dashboard-header">
+            <div>
+                <h1 class="page-title">KENNEL MANAGER</h1>
+                <p class="subtitle">Oversee your elite bloodlines</p>
+                <div class="line"></div>
+            </div>
+            <div class="dashboard-actions">
+                <a href="addCard.html" class="primary-btn">
+                    <i class="fa-solid fa-dog"></i> Add New Dog
+                </a>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="dashboard-table">
+                <thead>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Name / Details</th>
+                        <th>Breed Category</th>
+                        <th class="text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboard-body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

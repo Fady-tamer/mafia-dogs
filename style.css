@@ -1,0 +1,331 @@
+:root {
+    --hover-font: #fff;
+    --gold: #D4AF37;
+    /* A richer gold */
+    --dark-gold: rgb(184, 150, 56);
+    --black: #050505;
+    --card-bg: #121212;
+}
+
+* {
+    box-sizing: border-box;
+    /* Crucial for layout math */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Bungee", sans-serif;
+    background-color: var(--black);
+    color: var(--gold);
+    overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--dark-gold);
+    background-color: rgba(5, 5, 5, 0.95);
+    /* Slight transparency */
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-logo {
+    width: 60px;
+    height: auto;
+}
+
+.header-text {
+    margin: 0;
+    font-size: 2.5rem;
+    /* Using REM for scalability */
+    color: var(--gold);
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Federations */
+.federations {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.federations img {
+    width: 40px;
+    transition: transform 0.2s;
+}
+
+.federations img:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation */
+.navigation-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.navigation-bar a {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    color: var(--gold);
+    border: 1px solid transparent;
+}
+
+.navigation-bar a:hover {
+    color: #fff;
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 15px var(--dark-gold);
+}
+
+/* --- BACKGROUND WATERMARK --- */
+.background-container {
+    position: fixed;
+    top: 185px;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.background-img {
+    width: 43%;
+    opacity: 0.28;
+    /* Subtle watermark */
+}
+
+/* --- HERO / WELCOME --- */
+.welcome-content {
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-text h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 5px;
+    text-shadow: 0 0 10px var(--gold);
+}
+
+.welcome-subtext {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.welcome-text p {
+    font-size: 1.8rem;
+    color: #ccc;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.welcome-content-imgs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.welcome-content-imgs img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--dark-gold);
+    transition: transform 0.3s;
+}
+
+.welcome-content-imgs img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* --- BREED SECTIONS --- */
+.breed-section {
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.part-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.part-header h1 {
+    color: var(--gold);
+    white-space: nowrap;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.part-header .line {
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    width: 100%;
+    border: none;
+}
+
+/* --- CARD GRID SYSTEM --- */
+/* This automatically creates columns based on screen width */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-gold);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+}
+
+.card-img-container {
+    width: 100%;
+    height: 250px;
+    /* Fixed height for consistency */
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image fills box without stretching */
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-container img {
+    transform: scale(1.05);
+    /* Zoom effect on hover */
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    color: var(--gold);
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.card-text {
+    color: #ccc;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* --- FOOTER --- */
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid var(--dark-gold);
+    background-color: #000;
+}
+
+footer p {
+    font-size: 1rem;
+    color: var(--gold);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.link i {
+    font-size: 22px;
+    color: var(--gold);
+    transition: all 0.3s;
+}
+
+.link i:hover {
+    color: var(--dark-gold);
+    transform: translateY(-3px);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 1024px) {
+    .header-text {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 20px;
+    }
+
+    .federations,
+    .navigation-bar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-content {
+        order: -1;
+        /* Puts logo at top on mobile */
+    }
+
+    .breed-section {
+        padding: 20px;
+    }
+
+    .welcome-text h2 {
+        font-size: 2rem;
+    }
+
+    .card-grid {
+        /* On small screens, force 1 column usually, or keeping auto-fill works too */
+        grid-template-columns: 1fr;
+    }
+}

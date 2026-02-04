@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mafia Dogs - Add New Dog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="images/main-logo-gold.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="addCard.css">
+</head>
+
+<body>
+
+    <div class="background-container">
+        <img class="background-img" src="images/main-logo-gold.png" alt="">
+    </div>
+
+    <header class="top-nav">
+        <div class="logo-container">
+            <img src="images/main-logo-gold.png" alt="Logo" class="nav-logo">
+            <span>MAFIA DOGS</span>
+        </div>
+        <div class="nav-bar">
+            <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house"></i> Home
+            </a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <form class="card-form" action="">
+            <div class="form-header">
+                <h1>ADD NEW DOG</h1>
+                <p>Expand the Family Bloodline</p>
+                <div class="line"></div>
+            </div>
+
+            <div class="form-group file-area">
+                <label>Dog Image*</label>
+                <div class="file-upload-wrapper">
+                    <input type="file" id="card-img" accept="image/*" required>
+                    <div class="file-upload-visual">
+                        <i class="fa-solid fa-camera"></i>
+                        <span>Upload Photo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="card-header">Dog Name*</label>
+                <input type="text" id="card-header" placeholder="e.g. BRUTUS THE DESTROYER" required>
+            </div>
+
+            <div class="form-group">
+                <label for="card-tags">Short Details (Tags)*</label>
+                <input type="text" id="card-tags" placeholder="e.g. Male • 2 Years • Imported" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Breed Category*</label>
+                <div class="select-wrapper">
+                    <select id="category" required>
+                        <option value="" disabled selected>Select Breed</option>
+                        <option value="caucasian">Caucasian Shepherd</option>
+                        <option value="alabai">Alabai (Central Asian)</option>
+                        <option value="cane-corso">Cane Corso</option>
+                        <option value="rottweiler">Rottweiler</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="card-description">Description / Pedigree</label>
+                <textarea id="card-description" rows="4"
+                    placeholder="Enter pedigree details, weight, age, and temperament..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fa-solid fa-paw"></i> Add to Kennel
+            </button>
+        </form>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
