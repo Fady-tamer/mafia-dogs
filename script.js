@@ -1,21 +1,48 @@
-// Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+document.addEventListener("DOMContentLoaded", () => {
+    // Get modal elements
+    const modal = document.getElementById("cardModal");
+    const modalImg = document.getElementById("modal-img");
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const closeBtn = document.querySelector(".close-btn");
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyCKt1sgol0nfRDkMPhrDyKeLud8CXpxiPg",
-    authDomain: "mafia-dogs.firebaseapp.com",
-    projectId: "mafia-dogs",
-    storageBucket: "mafia-dogs.firebasestorage.app",
-    messagingSenderId: "913869880364",
-    appId: "1:913869880364:web:80a9b7910e7a6731b8e589",
-    measurementId: "G-2RB8KRTEZ0"
-  };
+    // Select all cards
+    const cards = document.querySelectorAll(".card");
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    // Add click event to each card
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            // 1. Get content from the clicked card
+            const cardImg = card.querySelector(".card-image"); // Find image if it exists
+            const title = card.querySelector("h2").innerText;
+            const desc = card.querySelector(".description").innerText;
+
+            // 2. Populate the modal
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+
+            // CHECK: Does this card have an image?
+            if (cardImg) {
+                modalImg.src = cardImg.src;
+                modalImg.style.display = "block"; // Show image
+            } else {
+                modalImg.style.display = "none";  // Hide image area
+            }
+
+            // 3. Show the modal
+            modal.style.display = "block";
+        });
+    });
+
+    // Close button logic
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    // Close if user clicks outside the modal content
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
