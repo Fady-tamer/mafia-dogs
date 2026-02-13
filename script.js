@@ -13,20 +13,32 @@ document.addEventListener("DOMContentLoaded", () => {
     cards.forEach(card => {
         card.addEventListener("click", () => {
             // 1. Get content from the clicked card
-            const cardImg = card.querySelector(".card-image"); // Find image if it exists
-            const title = card.querySelector("h2").innerText;
-            const desc = card.querySelector(".description").innerText;
-
-            // 2. Populate the modal
-            modalTitle.innerText = title;
-            modalDesc.innerText = desc;
+            const cardImg = card.querySelector(".card-image");
+            const title = card.querySelector("h2");
+            const desc = card.querySelector(".description");
 
             // CHECK: Does this card have an image?
             if (cardImg) {
                 modalImg.src = cardImg.src;
-                modalImg.style.display = "block"; // Show image
+                modalImg.style.display = "block";
             } else {
-                modalImg.style.display = "none";  // Hide image area
+                modalImg.style.display = "none";
+            }
+
+            // CHECK: Does this card have an title?
+            if (title) {
+                modalTitle.innerHTML = title.innerHTML;
+                modalTitle.style.display = "block";
+            } else {
+                modalTitle.style.display = "none";
+            }
+
+            // CHECK: Does this card have an desc?
+            if (desc) {
+                modalDesc.innerHTML = desc.innerHTML;
+                modalDesc.style.display = "block";
+            } else {
+                modalDesc.style.display = "none";
             }
 
             // 3. Show the modal
