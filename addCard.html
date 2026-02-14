@@ -6,21 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAFIA DOGS - Add card</title>
 
-    <meta name="description"
-        content=".مافيا دوجز: دليلك الشامل لأقوى سلالات الكلاب مثل الكاني كورسو، الألاباي، والكوكيجن. تعرف على طرق التربية، التغذية السليمة، ونصائح التدريب للمحترفين">
-    <meta name="keywords"
-        content="tamer, elmor, tamer elmor, dogs, FCI, EKF, mafia dogs, caucasian, alabai, cane corso">
-
-    <meta name="language" content="arabic">
-    <meta name="author" content="Fady Tamer">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Fascinate&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="addCard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cairo:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
     <link rel="icon" type="image/png" href="images/main-logo-gold.png">
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -28,46 +19,43 @@
 </head>
 
 <body>
-
     <header class="top-nav">
-        <a href="index.html" class="logo">
-            <img src="images/main-logo-gold.png" alt="Logo">
-        </a>
+        <a href="index.html" class="logo"><img src="images/main-logo-gold.png" alt="Logo"></a>
         <div class="nav-bar">
-            <a href="index.html" class="nav-link">
-                <i class="fa-solid fa-house"></i> Home
-            </a>
+            <a href="index.html" class="nav-link" data-i18n="nav_home"><i class="fa-solid fa-house"></i> Home</a>
+            <button id="lang-btn" onclick="toggleLanguage()"
+                style="background:none; border:1px solid var(--gold); color:var(--gold); padding:5px 10px; cursor:pointer;">AR</button>
         </div>
     </header>
 
     <main class="main-container">
-        <form class="card-form" action="">
+        <form class="card-form">
             <div class="form-header">
-                <h1>Create New Card</h1>
-                <p>Share your art with the world</p>
+                <h1 data-i18n="form_title">Create New Card</h1>
+                <p data-i18n="form_sub">Share your art with the world</p>
             </div>
 
             <div class="form-group file-area">
-                <label for="card-img">Card Image</label>
+                <label for="card-img" data-i18n="lbl_img">Card Image</label>
                 <div class="file-upload-wrapper">
                     <input type="file" id="card-img" accept="image/*">
                     <div class="file-upload-visual">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
-                        <span>Click to upload image</span>
+                        <span data-i18n="txt_upload">Click to upload image</span>
                     </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="card-header">Card Title</label>
-                <input type="text" id="card-header" placeholder="e.g. The Starry Night">
+                <label for="card-header" data-i18n="lbl_title">Card Title</label>
+                <input type="text" id="card-header" data-i18n="ph_title" placeholder="e.g. The Starry Night">
             </div>
 
             <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category" data-i18n="lbl_cat">Category</label>
                 <div class="select-wrapper">
                     <select id="category" required>
-                        <option value="" disabled selected>Select a category</option>
+                        <option value="" disabled selected data-i18n="opt_select">Select a category</option>
                         <option value="general">general</option>
                         <option value="caucasian">caucasian</option>
                         <option value="alabai">alabai</option>
@@ -78,16 +66,15 @@
             </div>
 
             <div class="form-group">
-                <label for="card-description">Description</label>
-                <textarea id="card-description" rows="4" placeholder="Tell the story behind this card..."></textarea>
+                <label for="card-description" data-i18n="lbl_desc">Description</label>
+                <textarea id="card-description" rows="4" data-i18n="ph_desc" placeholder="Tell the story..."></textarea>
             </div>
 
             <button type="submit" class="submit-btn">
-                <i class="fa-solid fa-plus"></i> Add Card
+                <i class="fa-solid fa-plus"></i> <span data-i18n="btn_publish">Publish Card</span>
             </button>
         </form>
     </main>
-
     <script src="script.js"></script>
 </body>
 

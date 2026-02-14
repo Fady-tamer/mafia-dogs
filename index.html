@@ -6,21 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAFIA DOGS</title>
 
-    <meta name="description"
-        content=".مافيا دوجز: دليلك الشامل لأقوى سلالات الكلاب مثل الكاني كورسو، الألاباي، والكوكيجن. تعرف على طرق التربية، التغذية السليمة، ونصائح التدريب للمحترفين">
-    <meta name="keywords"
-        content="tamer, elmor, tamer elmor, dogs, FCI, EKF, mafia dogs, caucasian, alabai, cane corso">
-
-    <meta name="language" content="arabic">
-    <meta name="author" content="Fady Tamer">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Fascinate&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cairo:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
     <link rel="icon" type="image/png" href="images/main-logo-gold.png">
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -28,108 +19,79 @@
 </head>
 
 <body>
-
     <div class="background-container">
-        <img class="background-img" src="images/main-logo-gold.png" alt="">
-    </div>
-
-    <div class="spheres" aria-hidden="true">
-        <div class="sphere1"></div>
-        <div class="sphere2"></div>
-        <div class="sphere3"></div>
-        <div class="sphere4"></div>
+        <img class="background-img" src="images/main-logo-gold.png">
     </div>
 
     <header>
         <div class="federations">
-            <a href="https://www.fci.be" target="_blank">
-                <img src="images/FCI.png" alt="FCI Logo">
-            </a>
-            <a href="https://www.ekf-eg.com" target="_blank">
-                <img src="images/EKF.png" alt="EKF Logo">
-            </a>
-            <a href="https://www.facebook.com/EKFEGY/" target="_blank">
-                <img src="images/EKF-NEW.png" alt="EKF New Logo">
-            </a>
+            <a href="https://www.fci.be" target="_blank"><img src="images/FCI.png"></a>
+            <a href="https://www.ekf-eg.com" target="_blank"><img src="images/EKF.png"></a>
+            <a href="https://www.facebook.com/EKFEGY/" target="_blank"><img src="images/EKF-NEW.png"></a>
         </div>
-
         <div class="header-content">
-            <a href="#" class="header-text">
-                MAFIA
-                <img class="main-logo" src="images/main-logo-gold.png" alt="Mafia Dogs Logo">
-                DOGS
-            </a>
+            <a href="#" class="header-text">MAFIA <img class="main-logo" src="images/main-logo-gold.png"> DOGS</a>
         </div>
-
         <nav class="navigation-bar">
-            <a href="#">Home</a>
-            <a href="#">Contact</a>
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <button id="lang-btn" onclick="toggleLanguage()"
+                style="background:none; border:1px solid var(--gold); color:var(--gold); padding:5px 10px; cursor:pointer;">AR</button>
         </nav>
     </header>
 
     <div class="welcome-content">
         <div class="welcome-text">
-            <h2>ELITE BLOODLINES</h2>
+            <h2 data-i18n="hero_title">ELITE BLOODLINES</h2>
             <div class="welcome-subtext">
-                <img class="main-logo" src="images/main-logo-gold.png" alt="Mafia Dogs Logo">
+                <img class="main-logo" src="images/main-logo-gold.png">
                 <p>Mafia Dogs</p>
-                <img class="main-logo" src="images/main-logo-gold.png" alt="Mafia Dogs Logo">
+                <img class="main-logo" src="images/main-logo-gold.png">
             </div>
         </div>
-
         <div class="welcome-content-imgs">
-            <img src="images/shepherd-dog-portrait.png" alt="Dog 1">
-            <img src="images/alabai.jpeg" alt="Dog 2">
-            <img src="images/cane-corso.jpg" alt="Dog 3">
+            <img src="images/shepherd-dog-portrait.png"><img src="images/alabai.jpeg"><img src="images/cane-corso.jpg">
         </div>
     </div>
 
     <main class="container">
-
-        <!-- general -->
-        <section class="gallery-section" id="ForYou">
+        <section class="gallery-section">
             <div class="section-header">
-                <h2 class="handwritten-title">general</h2>
+                <h2 class="handwritten-title" data-i18n="cat_general">general</h2>
                 <div class="line-deco"></div>
             </div>
             <div class="general-grid"></div>
         </section>
 
-        <!-- caucasian -->
-        <section class="gallery-section" id="Artist'sStory">
+        <section class="gallery-section">
             <div class="section-header">
-                <h2 class="handwritten-title">caucasian</h2>
+                <h2 class="handwritten-title" data-i18n="cat_caucasian">caucasian</h2>
                 <div class="line-deco"></div>
             </div>
             <div class="caucasian-grid"></div>
         </section>
 
-        <!-- alabai -->
-        <section class="gallery-section" id="ArtStory">
+        <section class="gallery-section">
             <div class="section-header">
-                <h2 class="handwritten-title">alabai</h2>
+                <h2 class="handwritten-title" data-i18n="cat_alabai">alabai</h2>
                 <div class="line-deco"></div>
             </div>
             <div class="alabai-grid"></div>
         </section>
 
-        <!-- corso -->
-        <section class="gallery-section" id="Country'sStory">
+        <section class="gallery-section">
             <div class="section-header">
-                <h2 class="handwritten-title">corso</h2>
+                <h2 class="handwritten-title" data-i18n="cat_corso">corso</h2>
                 <div class="line-deco"></div>
             </div>
             <div class="corso-grid"></div>
         </section>
-
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>Copyright © 2026 MAFIA DOGS. All rights reserved.</p>
+            <p data-i18n="footer_text">Copyright © 2026 MAFIA DOGS. All rights reserved.</p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 

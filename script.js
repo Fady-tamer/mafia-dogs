@@ -187,9 +187,9 @@ window.openCard = function(cardId) {
     modalBody.innerHTML = `
         <img src="${card.img}" alt="${card.title}">
         <div class="modal-header">
-            <h2 style="font-size:2.5rem; color:var(--navy);">${card.title}</h2>
+            <h2 style="font-size: 1.7rem;">${card.title}</h2>
         </div>
-        <p style="font-size:1.05rem; line-height:1.7; color:#444; white-space: pre-wrap;">${card.desc}</p>
+        <p style="font-size:1.1rem; line-height:1.7; color: white; white-space: pre-wrap; direction: rtl;">${card.desc}</p>
     `;
 
     modalOverlay.style.display = 'flex';
@@ -300,3 +300,110 @@ window.deleteCard = async function(docId) {
         catch (error) { alert("Error deleting"); }
     }
 };
+
+// --- 8. TRANSLATION SYSTEM (ALL PAGES) ---
+const translations = {
+    en: {
+        nav_home: "Home",
+        nav_add: "Add New",
+        nav_contact: "Contact",
+        
+        // Index Page
+        hero_title: "ELITE BLOODLINES",
+        cat_general: "general",
+        cat_caucasian: "caucasian",
+        cat_alabai: "alabai",
+        cat_corso: "corso",
+        footer_text: "Copyright © 2026 MAFIA DOGS. All rights reserved.",
+        
+        // Add Card Page
+        form_title: "Create New Card",
+        txt_upload: "Click to upload image",
+        lbl_title: "Card Title",
+        lbl_cat: "Category",
+        opt_select: "Select a category",
+        lbl_desc: "Description",
+        ph_desc: "Tell the story behind this card...",
+        btn_publish: "Publish Card",
+        
+        // Dashboard
+        dash_title: "Manage Content",
+        dash_sub: "Edit or remove your portfolio items",
+        btn_create: "Create New",
+        th_art: "Artwork",
+        th_det: "Details",
+        th_cat: "Category",
+        th_act: "Actions"
+    },
+    ar: {
+        nav_home: "الرئيسية",
+        nav_add: "إضافة جديد",
+        nav_contact: "تواصل معنا",
+        
+        // Index Page
+        hero_title: "سلالات النخبة",
+        cat_general: "عام",
+        cat_caucasian: "كوكيجن",
+        cat_alabai: "ألاباي",
+        cat_corso: "كاني كورسو",
+        footer_text: "حقوق النشر © 2026 مافيا دوجز. جميع الحقوق محفوظة.",
+        
+        // Add Card Page
+        form_title: "إضافة بطاقة جديدة",
+        form_sub: "شارك فنك أو الفيديو الخاص بك مع العالم",
+        lbl_img: "صورة البطاقة",
+        txt_upload: "اضغط لرفع صورة",
+        lbl_video: "رابط الفيديو (اختياري)",
+        ph_video: "ضع رابط يوتيوب أو فيديو هنا...",
+        hlp_video: "اتركه فارغاً إذا كانت بطاقة صور فقط.",
+        lbl_title: "عنوان البطاقة",
+        lbl_cat: "القسم",
+        opt_select: "اختر قسماً",
+        lbl_desc: "الوصف",
+        ph_desc: "اكتب وصفاً للبطاقة...",
+        btn_publish: "نشر البطاقة",
+        
+        // Dashboard
+        dash_title: "إدارة المحتوى",
+        dash_sub: "تعديل أو حذف المحتوى الخاص بك",
+        btn_create: "إضافة جديد",
+        th_art: "الصورة",
+        th_det: "التفاصيل",
+        th_cat: "القسم",
+        th_act: "الإجراءات"
+    }
+};
+
+let currentLang = localStorage.getItem('site_lang') || 'en';
+applyLanguage(currentLang);
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    localStorage.setItem('site_lang', currentLang);
+    applyLanguage(currentLang);
+}
+
+function applyLanguage(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+            // Handle Inputs having placeholders instead of textContent
+            if(element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = translations[lang][key];
+            } else {
+                element.textContent = translations[lang][key];
+            }
+        }
+    });
+
+    const btn = document.getElementById('lang-btn');
+    if(btn) btn.textContent = lang === 'en' ? 'AR' : 'EN';
+
+    if (lang === 'ar') {
+        document.body.classList.add('rtl');
+        document.documentElement.setAttribute('lang', 'ar');
+    } else {
+        document.body.classList.remove('rtl');
+        document.documentElement.setAttribute('lang', 'en');
+    }
+}

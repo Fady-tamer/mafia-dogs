@@ -4,23 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAFIA DOGS - dashboard</title>
+    <title>MAFIA DOGS - Dashboard</title>
 
-    <meta name="description"
-        content=".مافيا دوجز: دليلك الشامل لأقوى سلالات الكلاب مثل الكاني كورسو، الألاباي، والكوكيجن. تعرف على طرق التربية، التغذية السليمة، ونصائح التدريب للمحترفين">
-    <meta name="keywords"
-        content="tamer, elmor, tamer elmor, dogs, FCI, EKF, mafia dogs, caucasian, alabai, cane corso">
-
-    <meta name="language" content="arabic">
-    <meta name="author" content="Fady Tamer">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Fascinate&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cairo:wght@400;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
     <link rel="icon" type="image/png" href="images/main-logo-gold.png">
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -28,19 +19,15 @@
 </head>
 
 <body>
-
     <header class="top-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="images/main-logo-gold.png" alt="Logo">
-            </a>
+            <a href="index.html" class="logo"><img src="images/main-logo-gold.png" alt="Logo"></a>
             <div class="nav-links">
-                <a href="index.html" class="nav-item">
-                    <i class="fa-solid fa-house"></i> Home
-                </a>
-                <a href="addCard.html" class="nav-item active">
-                    <i class="fa-solid fa-plus"></i> Add New
-                </a>
+                <a href="index.html" class="nav-item" data-i18n="nav_home"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="addCard.html" class="nav-item active" data-i18n="nav_add"><i class="fa-solid fa-plus"></i> Add
+                    New</a>
+                <button id="lang-btn" onclick="toggleLanguage()"
+                    style="background:none; border:1px solid var(--gold); color:var(--gold); padding:5px 10px; cursor:pointer;">AR</button>
             </div>
         </div>
     </header>
@@ -48,12 +35,12 @@
     <main class="dashboard-container">
         <div class="dashboard-header">
             <div>
-                <h1 class="page-title">Manage Content</h1>
-                <p class="subtitle">Edit or remove your portfolio items</p>
+                <h1 class="page-title" data-i18n="dash_title">Manage Content</h1>
+                <p class="subtitle" data-i18n="dash_sub">Edit or remove your portfolio items</p>
             </div>
             <div class="dashboard-actions">
                 <a href="addCard.html" class="primary-btn">
-                    <i class="fa-solid fa-plus"></i> Create New
+                    <i class="fa-solid fa-plus"></i> <span data-i18n="btn_create">Create New</span>
                 </a>
             </div>
         </div>
@@ -62,27 +49,23 @@
             <table class="dashboard-table">
                 <thead>
                     <tr>
-                        <th>Artwork</th>
-                        <th>Details</th>
-                        <th>Category</th>
-                        <th class="text-right">Actions</th>
+                        <th data-i18n="th_art">Artwork</th>
+                        <th data-i18n="th_det">Details</th>
+                        <th data-i18n="th_cat">Category</th>
+                        <th class="text-right" data-i18n="th_act">Actions</th>
                     </tr>
                 </thead>
-                <tbody id="dashboard-body">
-                </tbody>
+                <tbody id="dashboard-body"></tbody>
             </table>
         </div>
     </main>
 
     <div id="card-modal" class="modal-overlay" onclick="closeCard(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close-modal-btn" onclick="closeCard(event)">
-                <i class="fa-solid fa-xmark"></i>
-            </span>
+            <span class="close-modal-btn" onclick="closeCard(event)"><i class="fa-solid fa-xmark"></i></span>
             <div id="modal-body"></div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
