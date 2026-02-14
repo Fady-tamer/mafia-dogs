@@ -1,0 +1,407 @@
+/* --- Reset & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #D4AF37;
+    --dark-gold: rgb(184, 150, 56);
+    --black: #050505;
+    --card-bg: #121212;
+    --table-header: #1a1a1a;
+    --text-white: #ffffff;
+    --text-muted: #888;
+    --border-color: #333;
+    --danger: #ff4d4d;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--gold);
+    font-family: "Bungee", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Background Watermark --- */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+.background-img {
+    width: 60%;
+    max-width: 600px;
+    opacity: 0.05;
+}
+
+/* --- Navigation --- */
+.top-nav {
+    background-color: rgba(5, 5, 5, 0.95);
+    border-bottom: 2px solid var(--dark-gold);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(5px);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-white);
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--gold);
+    text-shadow: 0 0 10px var(--dark-gold);
+}
+
+/* --- Dashboard Layout --- */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-family: sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.line {
+    width: 100px;
+    height: 3px;
+    background-color: var(--dark-gold);
+    margin-top: 10px;
+}
+
+/* Primary "Add New" Button */
+.primary-btn {
+    background: linear-gradient(135deg, var(--dark-gold), var(--gold));
+    color: var(--black);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px var(--dark-gold);
+}
+
+/* --- Modern Table --- */
+.table-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dashboard-table thead {
+    background-color: var(--table-header);
+    border-bottom: 2px solid var(--dark-gold);
+}
+
+.dashboard-table th {
+    text-align: left;
+    padding: 20px 25px;
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.dashboard-table td {
+    padding: 20px 25px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-white);
+}
+
+.dashboard-table tr:last-child td {
+    border-bottom: none;
+}
+
+.dashboard-table tr:hover {
+    background-color: #1a1a1a; /* Slight highlight on hover */
+}
+
+/* Table Content Styling */
+.dashboard-table img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--dark-gold);
+}
+
+.dog-name {
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-bottom: 5px;
+}
+
+.dog-desc {
+    font-family: sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--gold);
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 1px solid var(--dark-gold);
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Action Buttons */
+.edit-btn,
+.delete-btn {
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    margin-left: 5px;
+}
+
+.edit-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--gold);
+}
+
+.edit-btn:hover {
+    background-color: var(--gold);
+    color: var(--black);
+}
+
+.delete-btn {
+    background-color: rgba(255, 77, 77, 0.1);
+    color: var(--danger);
+}
+
+.delete-btn:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+/* --- Modal Styles --- */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-gold);
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.modal-content p {
+    color: #ccc;
+    font-family: sans-serif;
+    margin-bottom: 25px;
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: var(--gold);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+
+.confirm-delete-btn {
+    background-color: var(--danger);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .primary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Transform Table to Cards for Mobile */
+    .dashboard-table thead {
+        display: none;
+    }
+
+    .dashboard-table,
+    .dashboard-table tbody,
+    .dashboard-table tr,
+    .dashboard-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .dashboard-table tr {
+        margin-bottom: 20px;
+        background: var(--card-bg);
+        border: 1px solid var(--dark-gold);
+        border-radius: 12px;
+        padding: 20px;
+        position: relative;
+    }
+
+    .dashboard-table td {
+        padding: 10px 0;
+        text-align: center; /* Center align for mobile cards */
+        border-bottom: none;
+    }
+
+    /* Actions Row */
+    .dashboard-table td:last-child {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px dashed var(--border-color);
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        width: auto;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
