@@ -242,12 +242,12 @@ window.openEditModal = async function(cardId) {
 
         // Inject Form into Modal
         modalBody.innerHTML = `
-            <h2 style="text-align:center; margin-bottom:15px; font-family:'Poppins', sans-serif;">Edit Card</h2>
+            <h2 style="text-align:center; margin-bottom:15px; font-family:'Poppins', sans-serif;">تعديل</h2>
             <div class="edit-form" style="display:flex; flex-direction:column; gap:10px;">
-                <label style="font-weight:600;">Title</label>
+                <label style="font-weight:600;">العنوان</label>
                 <input type="text" id="edit-title" value="${card.title}" style="padding:8px; border:1px solid #ccc; border-radius:5px;">
                 
-                <label style="font-weight:600;">Category</label>
+                <label style="font-weight:600;">القسم</label>
                 <select id="edit-category" style="padding:8px; border:1px solid #ccc; border-radius:5px;">
                     <option value="general" ${card.category === 'general' ? 'selected' : ''}>general</option>
                     <option value="caucasian" ${card.category === "caucasian" ? 'selected' : ''}>caucasian</option>
@@ -255,10 +255,10 @@ window.openEditModal = async function(cardId) {
                     <option value="corso" ${card.category === "corso" ? 'selected' : ''}>corso</option>
                 </select>
 
-                <label style="font-weight:600;">Description</label>
-                <textarea id="edit-desc" rows="5" style="padding:8px; border:1px solid #ccc; border-radius:5px;">${card.desc}</textarea>
+                <label style="font-weight:600;">الوصف</label>
+                <textarea id="edit-desc">${card.desc}</textarea>
 
-                <button onclick="saveEdit('${cardId}')" style="margin-top:10px; padding:10px; background:var(--teal); color:white; border:none; border-radius:5px; cursor:pointer;">Save Changes</button>
+                <button onclick="saveEdit('${cardId}')" style="margin:10px; padding:10px; background:var(--gold); color:white; border: 1px solid var(--dark-gold); border-radius:5px; cursor:pointer;">حفظ التغييرات</button>
             </div>
         `;
         

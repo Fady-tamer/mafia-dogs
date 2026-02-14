@@ -54,6 +54,7 @@ body {
     z-index: -80;
     filter: blur(50px);
     opacity: 0.5;
+    resize: vertical;
 }
 
 .sphere2 {

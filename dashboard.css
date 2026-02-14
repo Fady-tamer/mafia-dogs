@@ -303,6 +303,7 @@ body {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    direction: rtl;
 }
 
 .modal-content {
@@ -311,10 +312,22 @@ body {
     padding: 30px;
     border-radius: 15px;
     width: 90%;
+    height: fit-content;
+    max-height: 80vh;
     max-width: 500px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
     position: relative;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.modal-content::-webkit-scrollbar {
+    width: 0;
+}
+
+.modal-content #modal-body {
+    height: 100%;
 }
 
 .modal-content h3 {
@@ -327,6 +340,13 @@ body {
     color: #ccc;
     font-family: sans-serif;
     margin-bottom: 25px;
+}
+
+.modal-content textarea {
+    border-radius: 8px;
+    resize: vertical;
+    padding: 5px;
+    height: 400px;
 }
 
 .close-modal-btn {
