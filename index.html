@@ -6,14 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAFIA DOGS</title>
 
+    <!-- internal CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- external CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Cairo:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
+    <!-- icon -->
     <link rel="icon" type="image/png" href="images/main-logo-gold.png">
 
+    <!-- database -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 </head>
@@ -21,6 +25,9 @@
 <body>
     <div class="background-container">
         <img class="background-img" src="images/main-logo-gold.png">
+        <div class="sphere1"></div>
+        <div class="sphere2"></div>
+        <div class="sphere3"></div>
     </div>
 
     <header>
@@ -29,13 +36,12 @@
             <a href="https://www.ekf-eg.com" target="_blank"><img src="images/EKF.png"></a>
             <a href="https://www.facebook.com/EKFEGY/" target="_blank"><img src="images/EKF-NEW.png"></a>
         </div>
-        <div class="header-content">
-            <a href="#" class="header-text">MAFIA <img class="main-logo" src="images/main-logo-gold.png"> DOGS</a>
+        <div class="header-content" id="headerContent">
+            <a class="header-text">MAFIA <img class="main-logo" src="images/main-logo-gold.png"> DOGS</a>
         </div>
         <nav class="navigation-bar">
-            <a href="index.html" data-i18n="nav_home">Home</a>
-            <button id="lang-btn" onclick="toggleLanguage()"
-                style="background:none; border:1px solid var(--gold); color:var(--gold); padding:5px 10px; cursor:pointer;">AR</button>
+            <a id="homeLink" data-i18n="nav_home">Home</a>
+            <button id="lang-btn" onclick="toggleLanguage()">AR</button>
         </nav>
     </header>
 
@@ -88,6 +94,15 @@
     </main>
 
     <footer class="footer">
+        <div class="link">
+            <a href="https://www.facebook.com/share/1BvozJDSvh/?mibextid=wwXIfr" target="_blank"><i
+                    class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/_mafia_dogs_" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <!-- <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a> -->
+            <!-- <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a> -->
+            <!-- <a href="#" target="_blank"><i class="fa-brands fa-threads"></i></a> -->
+            <a href="+201271116526" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
         <div class="footer-content">
             <p data-i18n="footer_text">Copyright © 2026 MAFIA DOGS. All rights reserved.</p>
         </div>

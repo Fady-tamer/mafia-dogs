@@ -16,7 +16,6 @@ const db = firebase.firestore();
 const collectionName = "cards"; 
 
 // --- 2. MODAL SETUP ---
-// Inject Modal HTML if it doesn't exist
 if (!document.getElementById('card-modal')) {
     document.body.insertAdjacentHTML('beforeend', `
         <div id="card-modal" class="modal-overlay" onclick="closeCard(event)">
@@ -71,7 +70,7 @@ if (addForm) {
 
             await db.collection(collectionName).add(newCard);
             alert('Card Published Successfully!');
-            window.location.reload(); // Optional: reload to clear form
+            window.location.reload();
 
         } catch (error) {
             console.error("Error:", error);
@@ -126,6 +125,19 @@ function compressImage(file) {
 }
 
 // --- 4. LOGIC: Index Page ---
+document.getElementById('homeLink').addEventListener('click',()=>{
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
+})
+document.getElementById('headerContent').addEventListener('click',()=>{
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    })
+})
+
 const gridMap = {
     "general": document.querySelector('.general-grid'),
     "caucasian": document.querySelector('.caucasian-grid'),
@@ -133,10 +145,8 @@ const gridMap = {
     "corso": document.querySelector('.corso-grid')
 };
 
-// GLOBAL VARIABLE FOR CACHE
 let allCardsCache = [];
 
-// CRITICAL FIX: Trigger load if on homepage
 if (document.querySelector('.general-grid')) {
     loadCards();
 }
@@ -150,7 +160,6 @@ async function loadCards() {
 }
 
 function renderGrids(cardsToRender) {
-    // Clear all grids first
     Object.values(gridMap).forEach(grid => { 
         if(grid) grid.innerHTML = ''; 
     });
@@ -160,19 +169,41 @@ function renderGrids(cardsToRender) {
     }
 
     cardsToRender.forEach(card => {
-        const cardHTML = `
-        <div class="card" onclick="openCard('${card.id}')">
-            <div class="card-image"><img src="${card.img}" alt="${card.title}" loading="lazy"></div>
-            <div class="card-meta">
-                <span class="card-header">${card.title}</span>
-                <p class="card-description">${card.desc}</p>
-            </div>
-        </div>`;
         
-        // Find specific grid for this category
+        if(card.img && card.title && card.desc){
+            var cardHTML = `
+            <div class="card" onclick="openCard('${card.id}')">
+                <div class="card-image"><img src="${card.img}" alt="${card.title}"></div>
+                <div class="card-meta">
+                    <span class="card-header">${card.title}</span>
+                    <p class="card-description">${card.desc}</p>
+                </div>
+            </div>`;
+        }else if(card.img && card.title){
+            var cardHTML = `
+            <div class="card" onclick="openCard('${card.id}')">
+                <div class="card-image"><img src="${card.img}" alt="${card.title}"></div>
+                <div class="card-meta">
+                    <span class="card-header">${card.title}</span>
+                </div>
+            </div>`;
+        }else if(card.img && card.desc){
+            var cardHTML = `
+            <div class="card" onclick="openCard('${card.id}')">
+                <div class="card-image"><img src="${card.img}" alt="${card.title}"></div>
+                <div class="card-meta">
+                    <p class="card-description">${card.desc}</p>
+                </div>
+            </div>`;
+        }else if(card.img){
+            var cardHTML = `
+            <div class="card" onclick="openCard('${card.id}')">
+                <div class="card-image"><img src="${card.img}" alt="${card.title}"></div>
+            </div>`;
+        }
+        
         const targetGrid = gridMap[card.category];
         
-        // Only append if the grid actually exists in HTML
         if (targetGrid) {
             targetGrid.innerHTML += cardHTML;
         } 
@@ -232,7 +263,6 @@ async function loadDashboard() {
 }
 
 // --- 7. GLOBAL ACTIONS (Edit, Delete, Like, Rate) ---
-
 window.openEditModal = async function(cardId) {
     try {
         const doc = await db.collection(collectionName).doc(cardId).get();
@@ -240,7 +270,6 @@ window.openEditModal = async function(cardId) {
 
         const card = doc.data();
 
-        // Inject Form into Modal
         modalBody.innerHTML = `
             <h2 style="text-align:center; margin-bottom:15px; font-family:'Poppins', sans-serif;">تعديل</h2>
             <div class="edit-form" style="display:flex; flex-direction:column; gap:10px;">
@@ -284,7 +313,6 @@ window.saveEdit = async function(cardId) {
         modalOverlay.style.display = 'none'; 
         document.body.style.overflow = 'auto'; 
         
-        // Refresh appropriate view
         if(dashboardBody) loadDashboard();
         if(allCardsCache.length > 0) loadCards();
 

@@ -322,6 +322,7 @@ body {
     flex-direction: column;
     overflow-y: scroll;
 }
+
 .modal-content::-webkit-scrollbar {
     width: 0;
 }
