@@ -125,18 +125,6 @@ function compressImage(file) {
 }
 
 // --- 4. LOGIC: Index Page ---
-document.getElementById('homeLink').addEventListener('click',()=>{
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    })
-})
-document.getElementById('headerContent').addEventListener('click',()=>{
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    })
-})
 
 const gridMap = {
     "general": document.querySelector('.general-grid'),
@@ -434,4 +422,24 @@ function applyLanguage(lang) {
         document.body.classList.remove('rtl');
         document.documentElement.setAttribute('lang', 'en');
     }
+}
+
+const homeLink = document.getElementById('homeLink');
+if (homeLink) {
+    homeLink.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+const headerContent = document.getElementById('headerContent');
+if (headerContent) {
+    headerContent.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 }
